@@ -18,5 +18,12 @@
         insecure: "{{ olvm_insecure | default(true) }}"
       tags:
         - always
-    - name: Check VM status
+    - name: Check Host status
+      ovirt_host_info:
+        pattern: name=*
+        register: result
+    - name: Host status
+      - ansible.builtin.debug:
+        msg: "{{ result.ovirt_hosts }}"
+    
       
