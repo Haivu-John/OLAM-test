@@ -23,7 +23,7 @@
         pattern: name=*
         register: result
     - name: Host status
-      - ansible.builtin.debug:
+      ansible.builtin.debug:
         msg: "{{ result.ovirt_hosts }}"
     
       
